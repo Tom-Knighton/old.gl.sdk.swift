@@ -9,7 +9,7 @@ import Foundation
 
 extension Encodable {
     
-    func jsonEncode() -> Data? {
+    public func jsonEncode() -> Data? {
         let encoder = JSONEncoder()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
