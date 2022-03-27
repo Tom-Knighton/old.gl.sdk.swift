@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct StopPoint: Codable {
+public class StopPoint: Point {
 
     public var icsId: String?
     public var modes: [String]?
@@ -20,7 +20,4 @@ public struct StopPoint: Codable {
     public var children: [StopPoint]?
     public var properties: [StopPointProperty]?
     public var childStationIds: [String]?
-    public var lat: Float?
-    public var lon: Float?
-
 }
