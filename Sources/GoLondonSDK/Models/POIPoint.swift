@@ -8,8 +8,29 @@
 import Foundation
 
 public class POIPoint: Point {
-    
+        
     public var id: String?
     public var text: String?
     public var place_name: String?
+    
+    public required init(from decoder: Decoder) throws {
+        self.id = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .id)
+        self.text = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .text)
+        self.place_name = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .place_name)
+        
+        try super.init(from: decoder)
+    }
+    
+    public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+        
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.text, forKey: .text)
+        try container.encode(self.place_name, forKey: .place_name)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case id, text, place_name
+    }
 }

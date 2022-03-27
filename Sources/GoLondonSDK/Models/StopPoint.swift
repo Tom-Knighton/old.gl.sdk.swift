@@ -16,8 +16,43 @@ public class StopPoint: Point {
     public var name: String?
     public var commonName: String?
     public var lineModeGroups: [LineModeGroup]?
-    public var additionalProperties: [InternalStopPointProperty]?
     public var children: [StopPoint]?
     public var properties: [StopPointProperty]?
     public var childStationIds: [String]?
+    
+    public required init(from decoder: Decoder) throws {
+        self.icsId = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .icsId)
+        self.modes = try decoder.container(keyedBy: CodingKeys.self).decode([String]?.self, forKey: .modes)
+        self.zone = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .zone)
+        self.id = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .id)
+        self.name = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .name)
+        self.commonName = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .commonName)
+        self.lineModeGroups = try decoder.container(keyedBy: CodingKeys.self).decode([LineModeGroup]?.self, forKey: .lineModeGroups)
+        self.children = try decoder.container(keyedBy: CodingKeys.self).decode([StopPoint]?.self, forKey: .children)
+        self.properties = try decoder.container(keyedBy: CodingKeys.self).decode([StopPointProperty]?.self, forKey: .properties)
+        self.childStationIds = try decoder.container(keyedBy: CodingKeys.self).decode([String]?.self, forKey: .childStationIds)
+        
+        try super.init(from: decoder)
+    }
+    
+    public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+        
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.icsId, forKey: .icsId)
+        try container.encode(self.modes, forKey: .modes)
+        try container.encode(self.zone, forKey: .zone)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.name, forKey: .name)
+        try container.encode(self.commonName, forKey: .commonName)
+        try container.encode(self.lineModeGroups, forKey: .lineModeGroups)
+        try container.encode(self.children, forKey: .children)
+        try container.encode(self.properties, forKey: .properties)
+        try container.encode(self.childStationIds, forKey: .childStationIds)
+
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case icsId, modes, zone, id, name, commonName, lineModeGroups, children, properties, childStationIds
+    }
 }

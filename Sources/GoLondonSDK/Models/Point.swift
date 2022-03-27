@@ -11,10 +11,29 @@ public class Point: Codable {
 
     public var lat: Float?
     public var lon: Float?
+    
+    public var pointType: String?
 
-    public init(lat: Float? = nil, lon: Float? = nil) {
+    public init(lat: Float? = nil, lon: Float? = nil, pointType: String? = nil) {
         self.lat = lat
         self.lon = lon
+        self.pointType = pointType
     }
+}
 
+enum PointFamily: String, ClassFamily {
+    
+    case POI = "POI"
+    case Stop = "Stop"
+    
+    static var discriminator: Discriminator = .PointDiscriminator
+    
+    func getType() -> AnyObject.Type {
+        switch self {
+        case .Stop:
+            return StopPoint.self
+        case .POI:
+            return POIPoint.self
+        }
+    }
 }
