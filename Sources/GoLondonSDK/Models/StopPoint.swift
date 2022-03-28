@@ -20,6 +20,9 @@ public class StopPoint: Point {
     public var properties: [StopPointProperty]?
     public var childStationIds: [String]?
     
+    public var indicator: String?
+    public var stopLetter: String?
+    
     public required init(from decoder: Decoder) throws {
         self.icsId = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .icsId)
         self.modes = try decoder.container(keyedBy: CodingKeys.self).decode([String]?.self, forKey: .modes)
@@ -31,6 +34,8 @@ public class StopPoint: Point {
         self.children = try decoder.container(keyedBy: CodingKeys.self).decode([StopPoint]?.self, forKey: .children)
         self.properties = try decoder.container(keyedBy: CodingKeys.self).decode([StopPointProperty]?.self, forKey: .properties)
         self.childStationIds = try decoder.container(keyedBy: CodingKeys.self).decode([String]?.self, forKey: .childStationIds)
+        self.indicator = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .indicator)
+        self.stopLetter = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .stopLetter)
         
         try super.init(from: decoder)
     }
@@ -49,10 +54,11 @@ public class StopPoint: Point {
         try container.encode(self.children, forKey: .children)
         try container.encode(self.properties, forKey: .properties)
         try container.encode(self.childStationIds, forKey: .childStationIds)
-
+        try container.encode(self.indicator, forKey: .indicator)
+        try container.encode(self.stopLetter, forKey: .stopLetter)
     }
     
     enum CodingKeys: String, CodingKey {
-        case icsId, modes, zone, id, name, commonName, lineModeGroups, children, properties, childStationIds
+        case icsId, modes, zone, id, name, commonName, lineModeGroups, children, properties, childStationIds, indicator, stopLetter
     }
 }
