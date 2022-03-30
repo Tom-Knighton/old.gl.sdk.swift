@@ -9,8 +9,14 @@ import Foundation
 
 public struct JourneyMode: Codable {
 
+    
+    /// The id of the mode, i.e. tflrail
     public var id: String?
+    
+    /// The name of the mode, usually the same as id (or a friendly version of it)
     public var name: String?
+    
+    /// Usually 'Mode'
     public var type: String?
 
 }

@@ -8,17 +8,38 @@
 import Foundation
 
 public struct JourneyLeg: Codable {
-
+    
+    /// The instructions for this leg of the journey, i.e. 'Walk to xxx'
     public var instruction: JourneyLegInstruction?
+    
+    /// The time this leg of the journey departs, if available, i.e. the time a train will leave the station
     public var departureTime: Date?
+    
+    /// The time this leg of the journey ends, i.e. the time a train will arrive at its destination
     public var arrivalTime: Date?
+    
+    /// The StopPoint, if available, this leg of the journey is departing from
     public var departurePoint: StopPoint?
+    
+    /// The StopPoint, if available, this leg of the journey arrives at
     public var arrivalPoint: StopPoint?
+    
+    /// The path this leg takes, including a list of StopPoints the journey will travel through
     public var path: JourneyLegPath?
+    
+    /// Options for the current journey leg
     public var routeOptions: [JourneyLegRouteOption]?
+    
+    /// The mode of this leg, i.e. bus or tfl-rail
     public var mode: JourneyMode?
+    
+    /// Any disruptions affecting this leg of the journey
     public var disruptions: [Disruption]?
+    
+    /// Whether or not the current leg is disrupted in any way
     public var isDisrupted: Bool?
+    
+    /// Whether or not the leg has fixed locations like Stop Points
     public var hasFixedLocations: Bool?
 
 }

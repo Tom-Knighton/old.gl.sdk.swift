@@ -9,18 +9,38 @@ import Foundation
 
 public class StopPoint: Point {
 
+    
+    /// The ICs Id of the Stop Point
     public var icsId: String?
     public var modes: [String]?
+    /// The zone the Stop Point belongs to, i.e. '2' or '2/3'
     public var zone: String?
+    
+    /// The unique Id of the Stop Point
     public var id: String?
+    
+    /// The name of the station, should be used if commonName is nil
     public var name: String?
+    
+    /// The common name of the station, should be used if name is nil
     public var commonName: String?
+    
+    /// An array of LineModeGroups operating at this StopPoint
     public var lineModeGroups: [LineModeGroup]?
+    
+    /// Any StopPoints that are child points to this one
     public var children: [StopPoint]?
+    
+    /// An array of additional properties TfL holds on the StopPoint
     public var properties: [StopPointProperty]?
+    
+    /// An array of strings representing the Ids of the child Stop Points, for convenience
     public var childStationIds: [String]?
     
+    /// Bus Stops only: An indicator containing the full bus stop name i.e. 'Stop F' or just 'Stop' or '->W'
     public var indicator: String?
+    
+    /// Bus Stops only: The letter of the Bus Stop, i.e. 'F' or '->W', can be nil if indicator is just 'Stop'
     public var stopLetter: String?
     
     public required init(from decoder: Decoder) throws {

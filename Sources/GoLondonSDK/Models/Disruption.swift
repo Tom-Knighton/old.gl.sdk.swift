@@ -8,12 +8,23 @@
 import Foundation
 
 public struct Disruption: Codable {
-
+    
+    /// A description of the Disruption
     public var description: String?
+    
+    /// The date TfL added this disruption, this may not be the original start date of the disruption if the disruption has been spread over multiple days
     public var created: Date?
+    
+    /// The date that TfL last updated the disruption
     public var lastUpdate: Date?
+    
+    /// An array of LineRoutes that the disruption affects
     public var affectedRoutes: [LineRoute]?
+    
+    /// If the disruption is a planned closure, this may contain a description/reason of the closure
     public var closureText: String?
+    
+    /// The type of delay
     public var delayType: DisruptionDelayType?
 
 }

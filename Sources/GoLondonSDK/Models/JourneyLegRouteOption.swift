@@ -9,8 +9,13 @@ import Foundation
 
 public struct JourneyLegRouteOption: Codable {
 
+    /// The name of the route
     public var name: String?
+    
+    /// The direction of the route
     public var directions: [String]?
+    
+    /// Basic information on the Line of this route
     public var lineIdentifier: Line?
 
 }

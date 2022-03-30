@@ -8,8 +8,11 @@
 import Foundation
 
 public struct StopPointArrivalLineGroup: Codable {
-
+    
+    /// The name of the line the arrivals are for
     public var lineName: String?
+    
+    /// An array of platforms with arrivals attached
     public var platformGroups: [StopPointArrivalPlatformGroup]?
 
 }

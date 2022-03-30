@@ -9,8 +9,13 @@ import Foundation
 
 public struct LineStatusValidityPeriod: Codable {
 
+    /// When the status is valid from
     public var fromDate: Date?
+    
+    /// When the status is valid to
     public var toDate: Date?
+    
+    /// For convenience, if the status is happening now
     public var isNow: Bool?
 
 }

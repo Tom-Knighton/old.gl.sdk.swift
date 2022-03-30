@@ -9,7 +9,10 @@ import Foundation
 
 public struct StopPointProperty: Codable {
 
+    /// The name of the property, i.e. 'WiFi'
     public var name: String?
+    
+    /// The value of the property, i.e. 'Yes'
     public var value: String?
     
 }

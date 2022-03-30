@@ -8,17 +8,38 @@
 import Foundation
 
 public struct StopPointArrival: Codable {
-
+    
+    /// The unique id of the vehicle, typically the license plate for Buses
     public var vehicleId: String?
+    
+    /// The Id of the arrival
     public var id: String?
+    
+    /// The id of the line the arrival is happening on
     public var lineId: String?
+    
+    /// The name of the line the arrival is happening on
     public var lineName: String?
+    
+    /// The name of the platform the arrival is happening on
     public var platformName: String?
+    
+    /// The direction of travel of the arrival
     public var direction: String?
+    
+    /// The end destination of the vehicle of this arrival
     public var destinationName: String?
+    
+    /// The time, in seconds, estimated until the vehicle reaches the StopPoint
     public var timeToStation: Int?
+    
+    /// Where the vehicle is now
     public var currentLocation: String?
+    
+    /// The name of the station the arrival is happening at
     public var stationName: String?
+    
+    /// Usually for bus routes, if the bus route has a 'toward' value in its route
     public var towards: String?
     
 }

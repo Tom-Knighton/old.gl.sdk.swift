@@ -7,11 +7,19 @@
 
 import Foundation
 
+/// A journey that can be made from point A to B
 public struct Journey: Codable {
 
+    /// The date the journey starts at, usually includes time it takes to get to Stop Point A, if included
     public var startDateTime: Date?
+    
+    /// The time the journey finishes at
     public var arrivalDateTime: Date?
+    
+    /// The length of the journey, including periods of waiting
     public var duration: Int?
+    
+    /// The different legs of the journey, i.e. taking the bus, then walking
     public var legs: [JourneyLeg]?
     
 }

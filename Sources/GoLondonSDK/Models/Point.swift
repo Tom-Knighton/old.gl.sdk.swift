@@ -8,13 +8,21 @@
 import Foundation
 
 public class Point: Codable {
+    
+    public enum PointType: String, Codable {
+        case StopPoint = "Stop", POIPoint = "POI"
+    }
 
+    /// The latitude coordinate of the Point as a decimal value
     public var lat: Float?
+    
+    /// The longitude coordinate of the Point as a decimal value
     public var lon: Float?
     
-    public var pointType: String?
+    /// The type of Point
+    public var pointType: PointType?
 
-    public init(lat: Float? = nil, lon: Float? = nil, pointType: String? = nil) {
+    public init(lat: Float? = nil, lon: Float? = nil, pointType: PointType? = nil) {
         self.lat = lat
         self.lon = lon
         self.pointType = pointType

@@ -8,9 +8,14 @@
 import Foundation
 
 public class POIPoint: Point {
-        
+    
+    /// The unique id of the POI point
     public var id: String?
+    
+    /// The text of the POI point i.e. 'O2'
     public var text: String?
+    
+    /// Usually the address of the POI point i.e. 'O2, The O2 Millenium Way, London, England SE10 0DY, United Kingdom'
     public var place_name: String?
     
     public required init(from decoder: Decoder) throws {

@@ -9,7 +9,11 @@ import Foundation
 
 public struct JourneyLegInstruction: Codable {
 
+    
+    /// A summary sentence
     public var summary: String?
+    
+    /// A more detailed instruction
     public var detailed: String?
 
 }

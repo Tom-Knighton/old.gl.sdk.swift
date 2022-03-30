@@ -9,8 +9,13 @@ import Foundation
 
 public struct StopPointArrivalPlatformGroup: Codable {
 
+    /// The name of the platform
     public var platformName: String?
+    
+    /// The direction of travel arrivals are coming in to
     public var direction: String?
+    
+    /// The upcoming arrivals to this platform
     public var arrivals: [StopPointArrival]?
 
 }

@@ -8,12 +8,20 @@
 import Foundation
 
 public struct Line: Codable {
-
+    
+    /// The id of the Line
     public var id: String?
+    
+    /// The name of the line, i.e. 'Bakerloo'
     public var name: String?
+    
+    /// The name of the mode this line travels on, i.e. 'tube'
     public var modeName: String?
+    
+    /// Any disruptions affecting this line
     public var distruptions: [Disruption]?
     public var lineStatuses: [LineStatus]?
+    /// The current status of this line
     public var currentStatus: LineStatus?
 
 }
