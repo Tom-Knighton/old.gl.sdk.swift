@@ -20,7 +20,7 @@ public struct Line: Codable {
     
     /// Any disruptions affecting this line
     public var distruptions: [Disruption]?
-    public var lineStatuses: [LineStatus]?
+    
     /// The current status of this line
     public var currentStatus: LineStatus?
 
