@@ -12,7 +12,7 @@ public class StopPoint: Point {
     
     /// The ICs Id of the Stop Point
     public var icsId: String?
-    public var modes: [String]?
+    
     /// The zone the Stop Point belongs to, i.e. '2' or '2/3'
     public var zone: String?
     
@@ -45,7 +45,6 @@ public class StopPoint: Point {
     
     public required init(from decoder: Decoder) throws {
         self.icsId = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .icsId)
-        self.modes = try decoder.container(keyedBy: CodingKeys.self).decode([String]?.self, forKey: .modes)
         self.zone = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .zone)
         self.id = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .id)
         self.name = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .name)
@@ -65,7 +64,6 @@ public class StopPoint: Point {
         
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(self.icsId, forKey: .icsId)
-        try container.encode(self.modes, forKey: .modes)
         try container.encode(self.zone, forKey: .zone)
         try container.encode(self.id, forKey: .id)
         try container.encode(self.name, forKey: .name)
