@@ -8,11 +8,8 @@
 import Foundation
 
 public struct JourneyLegPath: Codable {
-
-    public var lineString: String?
     
     /// The StopPoints traveled through in this leg
     public var stopPoints: [StopPoint]?
-    public var linePaths: [[Float]]?
 
 }
