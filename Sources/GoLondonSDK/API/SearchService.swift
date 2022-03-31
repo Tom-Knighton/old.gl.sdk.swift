@@ -17,7 +17,7 @@ struct SearchService {
                 queryParams += "&modesToFilterBy=\(lineMode.rawValue)"
             }
             
-            let points = try await APIClient.perform(url: "Search/Around/\(lat)/\(lon)", to: [ClassWrapper<PointFamily, Point>].self)
+            let points = try await APIClient.perform(url: "Search/Around/\(lat)/\(lon)\(queryParams)", to: [ClassWrapper<PointFamily, Point>].self)
             return points?.compactMap { $0.object }
         } catch {
             GLSDKLogger.log("Error decoding results: \(error.localizedDescription)")
