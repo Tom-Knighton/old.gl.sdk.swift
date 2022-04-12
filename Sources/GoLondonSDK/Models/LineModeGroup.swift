@@ -10,7 +10,7 @@ import Foundation
 public struct LineModeGroup: Codable {
     
     /// The name of the mode i.e. 'tube'
-    public var modeName: String?
+    public var modeName: LineMode?
     
     /// A list of line identifiers here for this moe
     public var lineIdentifier: [String]?

@@ -16,6 +16,7 @@ class StopPointServiceTests: XCTestCase {
         let result = await GLSDK.StopPoints.Get(ids: ["910GGIDEAPK", "HUBLST"])
         XCTAssertNotNil(result)
         XCTAssert(result.count > 0)
+        XCTAssertNotNil(result.first?.lineModeGroups?.first?.modeName)
     }
     
     func testGetArrivals() async throws {
