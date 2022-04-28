@@ -16,4 +16,7 @@ public enum LineMode: String, Codable, CaseIterable {
     case overground = "overground"
     case tflrail = "tflrail"
     case replacementBus = "replacement-bus"
+    case elizabethLine = "elizabeth-line"
+    case cableCar = "cable-car"
+    case tram = "tram"
 }
