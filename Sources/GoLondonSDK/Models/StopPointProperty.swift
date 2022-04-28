@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Additional properties for a StopPoint, i.e. whether a StopPoint has WiFi or not
 public struct StopPointProperty: Codable {
 
     /// The name of the property, i.e. 'WiFi'

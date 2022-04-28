@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// When a LineStatus is valid from and until
 public struct LineStatusValidityPeriod: Codable {
 
     /// When the status is valid from

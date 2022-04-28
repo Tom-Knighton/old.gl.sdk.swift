@@ -7,8 +7,8 @@
 
 import Foundation
 
+/// The mode of this journey i.e. 'tflrail'
 public struct JourneyMode: Codable {
-
     
     /// The id of the mode, i.e. tflrail
     public var id: String?

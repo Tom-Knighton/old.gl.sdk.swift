@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A collection of StopPointArrivalPlatformGroups collected under a lineName
 public struct StopPointArrivalLineGroup: Codable {
     
     /// The name of the line the arrivals are for

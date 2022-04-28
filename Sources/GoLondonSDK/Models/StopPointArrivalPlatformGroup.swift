@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A collection of StopPointArrival objects at a specific platform
 public struct StopPointArrivalPlatformGroup: Codable {
 
     /// The name of the platform

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// The directions, name, and line identifier of this leg of the journey
 public struct JourneyLegRouteOption: Codable {
 
     /// The name of the route

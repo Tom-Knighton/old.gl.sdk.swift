@@ -7,9 +7,9 @@
 
 import Foundation
 
+/// An object representing a station, or bus stop, in the world.
 public class StopPoint: Point {
 
-    
     /// The ICs Id of the Stop Point
     public var icsId: String?
     

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// The current status of a Line and any disruptions affecting it
 public struct LineStatus: Codable {
     
     /// The id of the line status

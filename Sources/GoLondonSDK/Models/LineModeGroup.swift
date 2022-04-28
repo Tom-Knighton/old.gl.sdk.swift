@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A Line mode and the identifiers of lines operating at this mode. i.e. bus and 498, 174 etc.
 public struct LineModeGroup: Codable {
     
     /// The name of the mode i.e. 'tube'

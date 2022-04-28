@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A point in the world, either describing a StopPoint or a POIPoint
 public class Point: Codable {
     
     public enum PointType: String, Codable {

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A section of a Line
 public struct LineRoute: Codable {
     
     /// The id of the line route

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// The Stop Points passed through in this leg
 public struct JourneyLegPath: Codable {
     
     /// The StopPoints traveled through in this leg

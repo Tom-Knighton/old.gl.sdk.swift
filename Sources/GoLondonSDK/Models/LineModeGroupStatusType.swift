@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A friendly text to display for LineMode status
 public enum LineModeGroupStatusType: String, Codable, CaseIterable {
     case allGood = "All lines are reporting Good Service"
     case mostGood = "Most lines are reporting Good Service"

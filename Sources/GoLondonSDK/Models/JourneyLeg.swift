@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A leg of the journey, i.e. in a journey that takes you from point A->B by tube, and B->C by bus, A->B and B->C are JourneyLegs
 public struct JourneyLeg: Codable {
     
     /// The instructions for this leg of the journey, i.e. 'Walk to xxx'

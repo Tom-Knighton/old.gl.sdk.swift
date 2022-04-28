@@ -7,9 +7,9 @@
 
 import Foundation
 
+/// The instruction for the current leg of the journey
 public struct JourneyLegInstruction: Codable {
 
-    
     /// A summary sentence
     public var summary: String?
     

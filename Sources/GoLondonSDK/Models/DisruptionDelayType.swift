@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A friendly name to display for the type of delay, 'No Delays', 'Severe Delays' etc.
 public enum DisruptionDelayType: String, Codable, CaseIterable {
     case noDelays = "No Delays"
     case minorDelays = "Minor Delays"

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A place of interest in the world, or an address
 public class POIPoint: Point {
     
     /// The unique id of the POI point

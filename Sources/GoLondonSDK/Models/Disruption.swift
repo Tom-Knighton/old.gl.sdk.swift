@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A disruption affecting one or more LineRoutes
 public struct Disruption: Codable {
     
     /// A description of the Disruption

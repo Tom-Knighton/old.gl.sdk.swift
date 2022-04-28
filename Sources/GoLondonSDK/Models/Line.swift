@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A line is a specific line operating under a LineMode. I.e. 'bakerloo' etc for tube, but just national-rail for nationalRail
 public struct Line: Codable {
     
     /// The id of the Line

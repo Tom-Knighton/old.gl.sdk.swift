@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A mode of transport operating under TfL. i.e. tube, nationalRail, bus etc.
 public enum LineMode: String, Codable, CaseIterable {
     case tube = "tube"
     case bus = "bus"

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// An upcoming arrival to a StopPoint, i.e. a bus about to reach a stop or a train about to come into a station
 public struct StopPointArrival: Codable {
     
     /// The unique id of the vehicle, typically the license plate for Buses
