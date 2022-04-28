@@ -25,7 +25,10 @@ public class StopPoint: Point {
     /// The common name of the station, should be used if name is nil
     public var commonName: String?
     
-    /// An array of LineModeGroups operating at this StopPoint
+    /// An array of Line modes operating at this Stop Point
+    public var modes: [LineMode]?
+    
+    /// An array of LineModeGroups  (each LineMode an the line identifiers for each mode) operating at this StopPoint - when searching by name this only returns tube entries
     public var lineModeGroups: [LineModeGroup]?
     
     /// Any StopPoints that are child points to this one
