@@ -19,4 +19,12 @@ public enum LineMode: String, Codable, CaseIterable {
     case elizabethLine = "elizabeth-line"
     case cableCar = "cable-car"
     case tram = "tram"
+    
+    case unknown = "unknown"
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let string = try container.decode(String.self)
+        self = LineMode(rawValue: string) ?? .unknown
+    }
 }

@@ -26,7 +26,7 @@ public class StopPoint: Point {
     public var commonName: String?
     
     /// An array of Line modes operating at this Stop Point
-    public var modes: [LineMode]?
+    public var lineModes: [LineMode]?
     
     /// An array of LineModeGroups  (each LineMode an the line identifiers for each mode) operating at this StopPoint - when searching by name this only returns tube entries
     public var lineModeGroups: [LineModeGroup]?
@@ -53,7 +53,7 @@ public class StopPoint: Point {
         self.name = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .name)
         self.commonName = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .commonName)
         self.lineModeGroups = try decoder.container(keyedBy: CodingKeys.self).decode([LineModeGroup]?.self, forKey: .lineModeGroups)
-        self.modes = try decoder.container(keyedBy: CodingKeys.self).decode([LineMode]?.self, forKey: .modes)
+        self.lineModes = try decoder.container(keyedBy: CodingKeys.self).decode([LineMode]?.self, forKey: .lineModes)
         self.children = try decoder.container(keyedBy: CodingKeys.self).decode([StopPoint]?.self, forKey: .children)
         self.properties = try decoder.container(keyedBy: CodingKeys.self).decode([StopPointProperty]?.self, forKey: .properties)
         self.childStationIds = try decoder.container(keyedBy: CodingKeys.self).decode([String]?.self, forKey: .childStationIds)
@@ -73,7 +73,7 @@ public class StopPoint: Point {
         try container.encode(self.name, forKey: .name)
         try container.encode(self.commonName, forKey: .commonName)
         try container.encode(self.lineModeGroups, forKey: .lineModeGroups)
-        try container.encode(self.modes, forKey: .modes)
+        try container.encode(self.lineModes, forKey: .lineModes)
         try container.encode(self.children, forKey: .children)
         try container.encode(self.properties, forKey: .properties)
         try container.encode(self.childStationIds, forKey: .childStationIds)
@@ -82,6 +82,6 @@ public class StopPoint: Point {
     }
     
     enum CodingKeys: String, CodingKey {
-        case icsId, modes, zone, id, name, commonName, lineModeGroups, children, properties, childStationIds, indicator, stopLetter
+        case icsId, lineModes, zone, id, name, commonName, lineModeGroups, children, properties, childStationIds, indicator, stopLetter
     }
 }
