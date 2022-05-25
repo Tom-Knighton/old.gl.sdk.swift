@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A section of a Line
+/// A section of a Line involved in a disruption
 public struct LineRoute: Codable {
     
     /// The id of the line route
@@ -25,4 +25,39 @@ public struct LineRoute: Codable {
     /// Where the route ends
     public var destinationName: String?
 
+}
+
+/// A data class representing a line id, and a series of routes served by that line.
+public struct LineRoutes: Codable {
+    
+    /// The id of the line i.e. 'elizabeth'
+    public var lineId: String?
+    
+    /// The friendly name of the line i.e. 'Elizabeth line'
+    public var lineName: String?
+    
+    /// An array of route branches served by this this line
+    public var stopPointSequences: [Branch]?
+}
+
+/// A data class representing a branch of a line, with a list of stop points
+public struct Branch: Codable {
+    
+    /// The id of the line i.e. 'elizabeth'
+    public var lineId: String?
+    
+    /// The friendly name of the line i.e. 'Elizabeth line'
+    public var lineName: String?
+    
+    /// The id of this branch
+    public var branchInd: Int?
+    
+    /// Any branches that follow from this branch
+    public var nextBranchIds: [Int]?
+    
+    /// Any branches that this branch follows on from
+    public var prevBranchIds: [Int]?
+    
+    /// An array of (ordered) stop points served by this branch of the route
+    public var stopPoint: [StopPoint]?
 }

@@ -55,4 +55,23 @@ struct LineService {
             return .unk
         }
     }
+    
+    static func GetLineRoutes(for lineIds: [String]) async -> [LineRoutes]? {
+        do {
+            var queryString = "?"
+            for lineId in lineIds {
+                queryString += "lineIdentifiers=\(lineId)&"
+            }
+            queryString.removeLast()
+            
+            return try await APIClient.perform(url: "Line/Routes\(queryString)", to: [LineRoutes].self) ?? []
+        } catch {
+            GLSDKLogger.log("Error decoding Line/Routes result \(error.localizedDescription)", logType: .error)
+            return nil
+        }
+    }
+    
+    static func GetLineRoutes(for lineId: String) async -> LineRoutes? {
+        return await GetLineRoutes(for: [lineId])?.first
+    }
 }

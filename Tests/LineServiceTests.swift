@@ -34,5 +34,11 @@ class LineServiceTests: XCTestCase {
         let result = await GLSDK.Lines.Status(for: LineMode.allCases)
         XCTAssert(result != LineModeGroupStatusType.unk)
     }
+    
+    func testLineRoutes() async throws {
+        
+        let results = await GLSDK.Lines.Routes(for: ["elizabeth"])
+        XCTAssert(!results.isEmpty)
+    }
 }
 

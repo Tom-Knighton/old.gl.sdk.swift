@@ -71,4 +71,20 @@ extension GLSDK.Lines {
     public static func Status(for lineModes: [LineMode]) async -> LineModeGroupStatusType {
         return await LineService.GetGeneralStatusString(for: lineModes)
     }
+    
+    
+    /// Returns an array of line ids and their routes with branches, with ordered stop points on each branch
+    /// - Parameter lineIds: The ids of the lines to return routes for, i.e. 'elizabeth' and 'bakerloo'
+    /// - Returns: An array of `LineRoutes` objects
+    public static func Routes(for lineIds: [String]) async -> [LineRoutes] {
+        return await LineService.GetLineRoutes(for: lineIds) ?? []
+    }
+    
+    
+    /// Returns a `LineRoutes` object that contains the line id and a series of branches with ordered stop points
+    /// - Parameter lineId: The id of the line, i.e. 'elizabeth' or 'bakerloo'
+    /// - Returns: A `LineRoutes` object 
+    public static func Routes(for lineId: String) async -> LineRoutes? {
+        return await LineService.GetLineRoutes(for: lineId)
+    }
 }
