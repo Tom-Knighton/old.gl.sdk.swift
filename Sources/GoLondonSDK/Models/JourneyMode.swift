@@ -7,10 +7,10 @@
 
 import Foundation
 
-/// The mode of this journey i.e. 'tflrail'
+/// The mode of this journey i.e. 'elizabeth-line'
 public struct JourneyMode: Codable {
     
-    /// The id of the mode, i.e. tflrail
+    /// The id of the mode, i.e. elizabeth-line
     public var id: String?
     
     /// The name of the mode, usually the same as id (or a friendly version of it)

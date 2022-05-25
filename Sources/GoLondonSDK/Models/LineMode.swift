@@ -9,12 +9,18 @@ import Foundation
 
 /// A mode of transport operating under TfL. i.e. tube, nationalRail, bus etc.
 public enum LineMode: String, Codable, CaseIterable {
+   
+    public static var allCases: [LineMode] { [.tube, .bus, .dlr, .nationalRail, .overground, .replacementBus, .elizabethLine, .cableCar, .tram] }
+    
     case tube = "tube"
     case bus = "bus"
     case dlr = "dlr"
     case nationalRail = "national-rail"
     case overground = "overground"
+    
+    @available(*, deprecated, renamed: "elizabethLine", message: "'tflrail' is deprecated and no longer a running service, it has been replaced with the Elizabeth Line")
     case tflrail = "tflrail"
+    
     case replacementBus = "replacement-bus"
     case elizabethLine = "elizabeth-line"
     case cableCar = "cable-car"

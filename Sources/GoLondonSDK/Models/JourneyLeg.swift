@@ -31,7 +31,7 @@ public struct JourneyLeg: Codable {
     /// Options for the current journey leg
     public var routeOptions: [JourneyLegRouteOption]?
     
-    /// The mode of this leg, i.e. bus or tfl-rail
+    /// The mode of this leg, i.e. bus or elizabeth-line
     public var mode: JourneyMode?
     
     /// Any disruptions affecting this leg of the journey

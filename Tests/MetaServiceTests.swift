@@ -19,7 +19,7 @@ class MetaServiceTests: XCTestCase {
     
     func testGetLineIds() async throws {
         
-        let results = await GLSDK.Meta.LineIds(for: .tflrail)
+        let results = await GLSDK.Meta.LineIds(for: .elizabethLine)
         XCTAssert(!results.isEmpty)
     }
     

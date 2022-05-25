@@ -19,7 +19,7 @@ class LineServiceTests: XCTestCase {
     
     func testGetLineInfoEndpoint() async throws {
         
-        let results = await GLSDK.Lines.Lines(lineIds: ["tfl-rail"])
+        let results = await GLSDK.Lines.Lines(lineIds: ["elizabeth"])
         XCTAssert(!results.isEmpty)
     }
     
