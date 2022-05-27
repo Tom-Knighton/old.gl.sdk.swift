@@ -42,4 +42,12 @@ struct MetaService {
             return nil
         }
     }
+    
+    static func GetLastModifiedRouteTime() async -> Date? {
+        do {
+            return try await APIClient.perform(url: "Meta/LastCachedRoutesTime", to: Date.self)
+        } catch {
+            return nil
+        }
+    }
 }

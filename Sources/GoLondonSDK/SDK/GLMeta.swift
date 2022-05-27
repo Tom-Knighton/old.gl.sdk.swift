@@ -39,4 +39,12 @@ extension GLSDK.Meta {
             return await MetaService.GetDelayTypes() ?? []
         }
     }
+    
+    /// Returns the last time the line route cache was modified in the API
+    ///
+    /// This can be used to determine whether to re-query `GLSDK.Lines.Routes()` if you cached it last time
+    /// - Returns: A Date, if one exists, from the API
+    public static func GetLastLineRouteModifiedTime() async -> Date? {
+        return await MetaService.GetLastModifiedRouteTime()
+    }
 }

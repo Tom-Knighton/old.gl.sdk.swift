@@ -28,4 +28,10 @@ class MetaServiceTests: XCTestCase {
         let results = await GLSDK.Meta.DelayTypes
         XCTAssert(!results.isEmpty)
     }
+    
+    func getLastModifiedRouteCache() async throws {
+        
+        let time = await GLSDK.Meta.GetLastLineRouteModifiedTime()
+        XCTAssertNotNil(time)
+    }
 }
