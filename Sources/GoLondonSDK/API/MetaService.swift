@@ -50,4 +50,20 @@ struct MetaService {
             return nil
         }
     }
+    
+    static func GetAccessibiltyData() async -> [StopPointAccessibility]? {
+        do {
+            return try await APIClient.perform(url: "Meta/GetAccessibility", to: [StopPointAccessibility].self)
+        } catch {
+            return nil
+        }
+    }
+    
+    static func GetLastAccessibilityCacheTime() async -> Date? {
+        do {
+            return try await APIClient.perform(url: "Meta/LastCachedAccessibilityTime", to: Date.self)
+        } catch {
+            return nil
+        }
+    }
 }

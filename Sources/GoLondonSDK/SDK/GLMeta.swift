@@ -47,4 +47,15 @@ extension GLSDK.Meta {
     public static func GetLastLineRouteModifiedTime() async -> Date? {
         return await MetaService.GetLastModifiedRouteTime()
     }
+    
+    
+    /// Returns TfL's accessibility data for stop points
+    public static func GetAccessibilityData() async -> [StopPointAccessibility] {
+        return await MetaService.GetAccessibiltyData() ?? []
+    }
+    
+    /// Returns the last time the accessibility data was cached by Go London's API
+    public static func GetLastAccessibilityCacheTime() async -> Date? {
+        return await MetaService.GetLastAccessibilityCacheTime()
+    }
 }

@@ -29,9 +29,21 @@ class MetaServiceTests: XCTestCase {
         XCTAssert(!results.isEmpty)
     }
     
-    func getLastModifiedRouteCache() async throws {
+    func testLastModifiedRouteCache() async throws {
         
         let time = await GLSDK.Meta.GetLastLineRouteModifiedTime()
         XCTAssertNotNil(time)
+    }
+    
+    func testIradData() async throws {
+        
+        let data = await GLSDK.Meta.GetAccessibilityData()
+        XCTAssert(!data.isEmpty)
+    }
+    
+    func testIradCacheTime() async throws {
+        
+        let time = await GLSDK.Meta.GetLastAccessibilityCacheTime()
+        XCTAssertNil(time)
     }
 }
