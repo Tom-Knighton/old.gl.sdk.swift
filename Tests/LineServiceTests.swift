@@ -40,5 +40,13 @@ class LineServiceTests: XCTestCase {
         let results = await GLSDK.Lines.Routes(for: ["elizabeth"])
         XCTAssert(!results.isEmpty)
     }
+    
+    func testLineRoutesVsFixCoords() async throws {
+        
+        let unfixedResults = await GLSDK.Lines.Routes(for: ["elizabeth", "central"], fixCoordinates: false)
+        let fixedResults = await GLSDK.Lines.Routes(for: ["elizabeth", "central"])
+        
+        XCTAssert(unfixedResults.jsonEncode() != fixedResults.jsonEncode())
+    }
 }
 

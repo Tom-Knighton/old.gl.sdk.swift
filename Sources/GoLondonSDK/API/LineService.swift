@@ -56,13 +56,14 @@ struct LineService {
         }
     }
     
-    static func GetLineRoutes(for lineIds: [String]) async -> [LineRoutes]? {
+    static func GetLineRoutes(for lineIds: [String], fixCoordinates: Bool = true) async -> [LineRoutes]? {
         do {
             var queryString = "?"
             for lineId in lineIds {
                 queryString += "lineIdentifiers=\(lineId)&"
             }
-            queryString.removeLast()
+            
+            queryString += "fixCoordinates=\(fixCoordinates)"
             
             return try await APIClient.perform(url: "Line/Routes\(queryString)", to: [LineRoutes].self) ?? []
         } catch {
@@ -71,7 +72,7 @@ struct LineService {
         }
     }
     
-    static func GetLineRoutes(for lineId: String) async -> LineRoutes? {
+    static func GetLineRoutes(for lineId: String, fixCoordinates: Bool = true) async -> LineRoutes? {
         return await GetLineRoutes(for: [lineId])?.first
     }
 }
