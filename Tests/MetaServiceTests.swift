@@ -44,6 +44,6 @@ class MetaServiceTests: XCTestCase {
     func testIradCacheTime() async throws {
         
         let time = await GLSDK.Meta.GetLastAccessibilityCacheTime()
-        XCTAssertNil(time)
+        XCTAssertNotNil(time)
     }
 }
