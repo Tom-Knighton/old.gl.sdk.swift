@@ -46,6 +46,8 @@ public class StopPoint: Point {
     /// Bus Stops only: The letter of the Bus Stop, i.e. 'F' or '->W', can be nil if indicator is just 'Stop'
     public var stopLetter: String?
     
+    public var quietTimeData: StopPointCrowding?
+    
     public required init(from decoder: Decoder) throws {
         self.icsId = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .icsId)
         self.zone = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .zone)
@@ -59,6 +61,7 @@ public class StopPoint: Point {
         self.childStationIds = try decoder.container(keyedBy: CodingKeys.self).decode([String]?.self, forKey: .childStationIds)
         self.indicator = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .indicator)
         self.stopLetter = try decoder.container(keyedBy: CodingKeys.self).decode(String?.self, forKey: .stopLetter)
+        self.quietTimeData = try decoder.container(keyedBy: CodingKeys.self).decode(StopPointCrowding?.self, forKey: .quietTimeData)
         
         try super.init(from: decoder)
     }
@@ -79,9 +82,10 @@ public class StopPoint: Point {
         try container.encode(self.childStationIds, forKey: .childStationIds)
         try container.encode(self.indicator, forKey: .indicator)
         try container.encode(self.stopLetter, forKey: .stopLetter)
+        try container.encode(self.quietTimeData, forKey: .quietTimeData)
     }
     
     enum CodingKeys: String, CodingKey {
-        case icsId, lineModes, zone, id, name, commonName, lineModeGroups, children, properties, childStationIds, indicator, stopLetter
+        case icsId, lineModes, zone, id, name, commonName, lineModeGroups, children, properties, childStationIds, indicator, stopLetter, quietTimeData
     }
 }

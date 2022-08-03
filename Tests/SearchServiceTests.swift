@@ -13,7 +13,7 @@ class SearchServiceTests: XCTestCase {
     
     func testSearchAround() async throws {
         
-        let results = await GLSDK.Search.SearchAround(latitude: 51.841, longitude: 0.1190)
+        let results = await GLSDK.Search.SearchAround(latitude: 51.582, longitude: 0.2063)
         XCTAssert(!results.isEmpty)
     }
 

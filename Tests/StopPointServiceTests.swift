@@ -15,8 +15,10 @@ class StopPointServiceTests: XCTestCase {
         
         let result = await GLSDK.StopPoints.Get(ids: ["910GGIDEAPK", "HUBLST"])
         XCTAssertNotNil(result)
-        XCTAssert(result.count > 0)
+        XCTAssert(result.count == 2)
         XCTAssertNotNil(result.first?.lineModeGroups?.first?.modeName)
+        XCTAssert(result.first?.quietTimeData?.containsDaily == false)
+        XCTAssert(result.last?.quietTimeData?.dailyCrowding.isEmpty == false)
     }
     
     func testGetArrivals() async throws {
@@ -24,5 +26,6 @@ class StopPointServiceTests: XCTestCase {
         let result = await GLSDK.StopPoints.GetArrivals(for: "HUBLST")
         XCTAssertNotNil(result)
         XCTAssert(result.count > 0)
+        XCTAssertNotNil(result.first?.platformGroups?.first?.arrivals?.first?.expectedArrival)
     }
 }

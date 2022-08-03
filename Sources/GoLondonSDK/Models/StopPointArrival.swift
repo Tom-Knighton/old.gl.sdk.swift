@@ -34,6 +34,9 @@ public struct StopPointArrival: Codable {
     /// The time, in seconds, estimated until the vehicle reaches the StopPoint
     public var timeToStation: Int?
     
+    /// The expected arrival time as a Date object
+    public var expectedArrival: Date?
+    
     /// Where the vehicle is now
     public var currentLocation: String?
     
