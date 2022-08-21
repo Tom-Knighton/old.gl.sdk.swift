@@ -26,6 +26,6 @@ class StopPointServiceTests: XCTestCase {
         let result = await GLSDK.StopPoints.GetArrivals(for: "HUBLST")
         XCTAssertNotNil(result)
         XCTAssert(result.count > 0)
-        XCTAssertNotNil(result.first?.platformGroups?.first?.arrivals?.first?.expectedArrival)
+        XCTAssertNotNil(result.first?.platformGroups.first?.departures.first?.scheduledArrival)
     }
 }

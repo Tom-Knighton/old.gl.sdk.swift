@@ -24,10 +24,10 @@ struct StopPointService {
         }
     }
     
-    static func GetEstimatedArrivals(for id: String) async -> [StopPointArrivalLineGroup]? {
+    static func GetEstimatedArrivals(for id: String) async -> [DepartureLineGroup]? {
         
         do {
-            return try await APIClient.perform(url: "StopPoint/EstimatedArrivals/\(id)", to: [StopPointArrivalLineGroup].self)
+            return try await APIClient.perform(url: "StopPoint/EstimatedArrivals/\(id)", to: [DepartureLineGroup].self)
         } catch {
             GLSDKLogger.log("Error decoding results \(error.localizedDescription)")
             return nil

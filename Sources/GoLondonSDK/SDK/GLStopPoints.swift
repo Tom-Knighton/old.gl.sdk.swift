@@ -17,10 +17,10 @@ extension GLSDK.StopPoints {
         return await StopPointService.GetBy(ids: ids) ?? []
     }
     
-    /// Returns a list of StopPointArrivals, sorted by time, platform and line, for a given StopPoint Id
+    /// Returns a list of DepartureLineGroups, sorted by time, platform and line, for a given StopPoint Id
     /// - Parameter id: The Id (StopPoint.id) of the StopPoint
-    /// - Remark: Returns an array of StopPointArrivalLineGroup objects
-    public static func GetArrivals(for id: String) async -> [StopPointArrivalLineGroup] {
+    /// - Remark: Returns an array of DepartureLineGroup objects
+    public static func GetArrivals(for id: String) async -> [DepartureLineGroup] {
         return await StopPointService.GetEstimatedArrivals(for: id) ?? []
     }
 }
