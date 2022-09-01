@@ -70,7 +70,7 @@ public struct Departure: Codable {
 ///  Data grouping some platform groups under a line id
 public struct DepartureLineGroup: Codable {
     
-    internal init(lineId: String, platformGroups: [DeparturePlatformGroup] = []) {
+    public init(lineId: String, platformGroups: [DeparturePlatformGroup] = []) {
         self.lineId = lineId
         self.platformGroups = platformGroups
     }
@@ -86,7 +86,7 @@ public struct DepartureLineGroup: Codable {
 /// For London Overground and Elizabeth Lines, 'Platform' and 'Direction' should be ignored
 public struct DeparturePlatformGroup: Codable {
     
-    internal init(platform: String? = nil, direction: String? = nil, departures: [Departure]) {
+    public init(platform: String? = nil, direction: String? = nil, departures: [Departure]) {
         self.platform = platform
         self.direction = direction
         self.departures = departures
