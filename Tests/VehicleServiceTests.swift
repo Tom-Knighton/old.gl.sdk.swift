@@ -14,7 +14,7 @@ class VehicleServiceTests: XCTestCase {
     func testGetArrivalsFirstAtLST() async throws{
         
         let firstAtLST = await GLSDK.StopPoints.GetArrivals(for: "HUBLST")
-        let vehId = firstAtLST.first?.platformGroups.first?.departures.first?.vehicleId ?? "noVehicleId"
+        let vehId = firstAtLST.first(where: { $0.lineId == "central" })?.platformGroups.first?.departures.first(where: { $0.lineId == "central" })?.vehicleId ?? "noVehicleId"
         
         let result = await GLSDK.Vehicles.GetArrivals(for: vehId)
         XCTAssert(!result.isEmpty)
