@@ -10,10 +10,11 @@ import Foundation
 /// Data representing a Train/Bus's departure from a StopPoint
 public struct Departure: Codable {
     
-    public init(platformName: String? = nil, vehicleId: String? = nil, lineId: String, destinationName: String? = nil, destinationNaptan: String? = nil, estimatedArrival: Date? = nil, estimatedDeparture: Date? = nil, scheduledArrival: Date? = nil, scheduledDeparture: Date? = nil, status: String? = nil, towards: String? = nil, tubeDirection: String? = nil, currentDirection: String? = nil) {
+    public init(platformName: String? = nil, vehicleId: String? = nil, lineId: String, lineMode: LineMode, destinationName: String? = nil, destinationNaptan: String? = nil, estimatedArrival: Date? = nil, estimatedDeparture: Date? = nil, scheduledArrival: Date? = nil, scheduledDeparture: Date? = nil, status: String? = nil, towards: String? = nil, tubeDirection: String? = nil, currentDirection: String? = nil) {
         self.platformName = platformName
         self.vehicleId = vehicleId
         self.lineId = lineId
+        self.lineMode = lineMode
         self.destinationName = destinationName
         self.destinationNaptan = destinationNaptan
         self.estimatedArrival = estimatedArrival
@@ -35,6 +36,9 @@ public struct Departure: Codable {
     
     /// The ID of the line this departure is a part of
     public let lineId: String
+    
+    /// The LineMode value of this departure type, i.e. dlr or tube
+    public let lineMode: LineMode
     
     /// The friendly name of the end destination for this departure
     public let destinationName: String?
@@ -70,13 +74,17 @@ public struct Departure: Codable {
 ///  Data grouping some platform groups under a line id
 public struct DepartureLineGroup: Codable {
     
-    public init(lineId: String, platformGroups: [DeparturePlatformGroup] = []) {
+    public init(lineId: String, lineMode: LineMode, platformGroups: [DeparturePlatformGroup] = []) {
         self.lineId = lineId
+        self.lineMode = lineMode
         self.platformGroups = platformGroups
     }
     
     /// The LineID of the line group
     public let lineId: String
+    
+    /// The LineMode of this line group, i.e. tube , bus, dlr etc.
+    public let lineMode: LineMode
     
     /// The platforms on this line
     public let platformGroups: [DeparturePlatformGroup]
