@@ -10,7 +10,8 @@ import Foundation
 /// Data representing a Train/Bus's departure from a StopPoint
 public struct Departure: Codable {
     
-    public init(platformName: String? = nil, vehicleId: String? = nil, lineId: String, lineMode: LineMode, destinationName: String? = nil, destinationNaptan: String? = nil, estimatedArrival: Date? = nil, estimatedDeparture: Date? = nil, scheduledArrival: Date? = nil, scheduledDeparture: Date? = nil, status: String? = nil, towards: String? = nil, tubeDirection: String? = nil, currentDirection: String? = nil) {
+    public init(platformName: String? = nil, vehicleId: String? = nil, lineId: String, lineMode: LineMode, destinationName: String? = nil, destinationNaptan: String? = nil, estimatedArrival: Date? = nil, estimatedDeparture: Date? = nil, scheduledArrival: Date? = nil, scheduledDeparture: Date? = nil, status: String? = nil, towards: String? = nil, tubeDirection: String? = nil, currentDirection: String? = nil,
+        canonicalDirection: String? = nil) {
         self.platformName = platformName
         self.vehicleId = vehicleId
         self.lineId = lineId
@@ -25,9 +26,9 @@ public struct Departure: Codable {
         self.towards = towards
         self.tubeDirection = tubeDirection
         self.currentDirection = currentDirection
+        self.canonicalDirection = canonicalDirection
     }
-    
-    
+
     /// The name of the platform this departure is arriving at
     public let platformName: String?
     
@@ -69,6 +70,9 @@ public struct Departure: Codable {
     
     /// For some lines, the current direction of this vehicle
     public let currentDirection: String?
+    
+    /// The canonical direction of this departure, inbound or outbound
+    public let canonicalDirection: String?
 }
 
 ///  Data grouping some platform groups under a line id
@@ -94,10 +98,11 @@ public struct DepartureLineGroup: Codable {
 /// For London Overground and Elizabeth Lines, 'Platform' and 'Direction' should be ignored
 public struct DeparturePlatformGroup: Codable {
     
-    public init(platform: String? = nil, direction: String? = nil, departures: [Departure]) {
+    public init(platform: String? = nil, direction: String? = nil, canonicalDirection: String? = nil, departures: [Departure]) {
         self.platform = platform
         self.direction = direction
         self.departures = departures
+        self.canonicalDirection = canonicalDirection
     }
         
     /// The name of the platform these deprtures are arriving at
@@ -108,4 +113,7 @@ public struct DeparturePlatformGroup: Codable {
     
     /// The actual departures undeer this platform
     public let departures: [Departure]
+    
+    /// The canonical direction, inbound or outbound, for this platform group
+    public let canonicalDirection: String?
 }
