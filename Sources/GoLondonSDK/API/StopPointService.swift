@@ -33,4 +33,17 @@ struct StopPointService {
             return nil
         }
     }
+    
+    static func GetTimetable(for stopPoint: String, lineId: String, direction: String? = nil) async -> [StopPointTimetable] {
+        do {
+            var url = "StopPoint/\(stopPoint)/timetable/\(lineId)"
+            if let direction {
+                url += "?direction=\(direction)"
+            }
+            return try await APIClient.perform(url: url, to: [StopPointTimetable].self) ?? []
+        } catch {
+            GLSDKLogger.log("Error decoding results \(error.localizedDescription)")
+            return []
+        }
+    }
 }

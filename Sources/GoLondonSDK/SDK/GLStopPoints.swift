@@ -23,4 +23,14 @@ extension GLSDK.StopPoints {
     public static func GetArrivals(for id: String) async -> [DepartureLineGroup] {
         return await StopPointService.GetEstimatedArrivals(for: id) ?? []
     }
+    
+    
+    /// Returns a list of timetables for a line at a stop point, optionally filter to one direction
+    /// - Parameters:
+    ///   - id: The naptan id of the stop point (i.e. no hubs)
+    ///   - lineId: the id of the line i.e. 'jubilee'
+    ///   - direction: Inbound or outbound
+    public static func GetTimetable(for id: String, lineId: String, direction: String? = nil) async -> [StopPointTimetable] {
+        return await StopPointService.GetTimetable(for: id, lineId: lineId, direction: direction)
+    }
 }

@@ -29,4 +29,25 @@ class StopPointServiceTests: XCTestCase {
         let firstDep = result.first?.platformGroups.first?.departures.first
         XCTAssert(((firstDep?.scheduledArrival) != nil) || ((firstDep?.scheduledDeparture) != nil) || ((firstDep?.estimatedArrival) != nil) || ((firstDep?.estimatedDeparture) != nil))
     }
+    
+    func testGetTimetableReturnsOk() async throws {
+        //Act
+        let result = await GLSDK.StopPoints.GetTimetable(for: "940GZZLUSTD", lineId: "jubilee")
+        
+        //Assert
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result.count, 2)
+        XCTAssertNotNil(result.first?.schedules)
+        XCTAssert(result.first?.schedules.isEmpty == false)
+    }
+    
+    
+    func testGetTimetableForInvalidStopReturnsEmpty() async throws {
+        //Act
+        let result = await GLSDK.StopPoints.GetTimetable(for: "940GZZLUSTD", lineId: "jjjj")
+        
+        //Assert
+        XCTAssertNotNil(result)
+        XCTAssert(result.isEmpty)
+    }
 }
