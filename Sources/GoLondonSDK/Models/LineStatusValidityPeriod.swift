@@ -18,5 +18,11 @@ public struct LineStatusValidityPeriod: Codable {
     
     /// For convenience, if the status is happening now
     public var isNow: Bool?
+    
+    public init(fromDate: Date? = nil, toDate: Date? = nil, isNow: Bool? = nil) {
+        self.fromDate = fromDate
+        self.toDate = toDate
+        self.isNow = isNow
+    }
 
 }

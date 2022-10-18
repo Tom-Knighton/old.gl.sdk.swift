@@ -16,4 +16,8 @@ public struct StopPointProperty: Codable {
     /// The value of the property, i.e. 'Yes'
     public var value: String?
     
+    public init(name: String? = nil, value: String? = nil) {
+        self.name = name
+        self.value = value
+    }
 }

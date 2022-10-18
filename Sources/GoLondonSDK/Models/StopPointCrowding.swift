@@ -21,4 +21,11 @@ public struct StopPointCrowding: Codable {
     
     /// The quietest time information per day, based on a short day key i.e. 'MON', 'SAT' etc.
     public let dailyCrowding: [String: String]
+    
+    public init(containsDaily: Bool, generalWeeklyCrowding: String, generalWeekendCrowding: String, dailyCrowding: [String : String]) {
+        self.containsDaily = containsDaily
+        self.generalWeeklyCrowding = generalWeeklyCrowding
+        self.generalWeekendCrowding = generalWeekendCrowding
+        self.dailyCrowding = dailyCrowding
+    }
 }

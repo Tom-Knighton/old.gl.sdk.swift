@@ -12,5 +12,9 @@ public struct JourneyLegPath: Codable {
     
     /// The StopPoints traveled through in this leg
     public var stopPoints: [StopPoint]?
+    
+    public init(stopPoints: [StopPoint]? = nil) {
+        self.stopPoints = stopPoints
+    }
 
 }

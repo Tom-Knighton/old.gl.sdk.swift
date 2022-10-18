@@ -21,6 +21,13 @@ public struct StopPointTimetable: Codable {
     
     /// The various schedules for this timetable
     public let schedules: [TimetableSchedule]
+    
+    public init(lineId: String, stopPointId: String, direction: String, schedules: [TimetableSchedule]) {
+        self.lineId = lineId
+        self.stopPointId = stopPointId
+        self.direction = direction
+        self.schedules = schedules
+    }
 }
 
 /// A schedule for a timetable
@@ -35,6 +42,12 @@ public struct TimetableSchedule: Codable {
     
     /// An array of entries/arrivals for this schedule
     public let entries: [TimetableEntry]
+    
+    public init(name: String, towards: [String], entries: [TimetableEntry]) {
+        self.name = name
+        self.towards = towards
+        self.entries = entries
+    }
 }
 
 /// An entry in a schedule, consisting of the date it will arrive and its destination
@@ -48,4 +61,10 @@ public struct TimetableEntry: Codable {
     
     /// The time of the arrival, the date part of the object will be the date the timetable was generated, and can be ignored
     public let time: Date
+    
+    public init(terminatingAt: String, id: Int, time: Date) {
+        self.terminatingAt = terminatingAt
+        self.id = id
+        self.time = time
+    }
 }

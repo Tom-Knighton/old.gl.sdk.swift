@@ -27,6 +27,13 @@ public class POIPoint: Point {
         try super.init(from: decoder)
     }
     
+    public override init(lat: Float? = nil, lon: Float? = nil, pointType: Point.PointType? = nil, id: String? = nil, text: String? = nil, placeName: String? = nil) {
+        super.init(lat: lat, lon: lon, pointType: pointType)
+        self.id = id
+        self.text = text
+        self.place_name = placeName
+    }
+
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder)
         

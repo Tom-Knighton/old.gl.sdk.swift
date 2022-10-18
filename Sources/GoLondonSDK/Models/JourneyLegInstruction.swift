@@ -15,5 +15,10 @@ public struct JourneyLegInstruction: Codable {
     
     /// A more detailed instruction
     public var detailed: String?
+    
+    public init(summary: String? = nil, detailed: String? = nil) {
+        self.summary = summary
+        self.detailed = detailed
+    }
 
 }

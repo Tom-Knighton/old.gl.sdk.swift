@@ -15,5 +15,10 @@ public struct LineModeGroup: Codable {
     
     /// A list of line identifiers here for this moe
     public var lineIdentifier: [String]?
+    
+    public init(modeName: LineMode? = nil, lineIdentifier: [String]? = nil) {
+        self.modeName = modeName
+        self.lineIdentifier = lineIdentifier
+    }
 
 }

@@ -24,6 +24,14 @@ public struct LineRoute: Codable {
     
     /// Where the route ends
     public var destinationName: String?
+    
+    public init(id: String? = nil, name: String? = nil, direction: String? = nil, originationName: String? = nil, destinationName: String? = nil) {
+        self.id = id
+        self.name = name
+        self.direction = direction
+        self.originationName = originationName
+        self.destinationName = destinationName
+    }
 
 }
 
@@ -38,6 +46,12 @@ public struct LineRoutes: Codable {
     
     /// An array of route branches served by this this line
     public var stopPointSequences: [Branch]?
+    
+    public init(lineId: String? = nil, lineName: String? = nil, stopPointSequences: [Branch]? = nil) {
+        self.lineId = lineId
+        self.lineName = lineName
+        self.stopPointSequences = stopPointSequences
+    }
 }
 
 /// A data class representing a branch of a line, with a list of stop points
@@ -60,4 +74,13 @@ public struct Branch: Codable {
     
     /// An array of (ordered) stop points served by this branch of the route
     public var stopPoint: [StopPoint]?
+    
+    public init(lineId: String? = nil, lineName: String? = nil, branchInd: Int? = nil, nextBranchIds: [Int]? = nil, prevBranchIds: [Int]? = nil, stopPoint: [StopPoint]? = nil) {
+        self.lineId = lineId
+        self.lineName = lineName
+        self.branchInd = branchInd
+        self.nextBranchIds = nextBranchIds
+        self.prevBranchIds = prevBranchIds
+        self.stopPoint = stopPoint
+    }
 }

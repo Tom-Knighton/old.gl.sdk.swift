@@ -18,5 +18,11 @@ public struct JourneyMode: Codable {
     
     /// Usually 'Mode'
     public var type: String?
+    
+    public init(id: String? = nil, name: String? = nil, type: String? = nil) {
+        self.id = id
+        self.name = name
+        self.type = type
+    }
 
 }

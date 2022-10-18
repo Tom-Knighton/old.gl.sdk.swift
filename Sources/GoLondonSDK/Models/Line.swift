@@ -24,5 +24,13 @@ public struct Line: Codable {
     
     /// The current status of this line
     public var currentStatus: LineStatus?
+    
+    public init(id: String? = nil, name: String? = nil, modeName: String? = nil, distruptions: [Disruption]? = nil, currentStatus: LineStatus? = nil) {
+        self.id = id
+        self.name = name
+        self.modeName = modeName
+        self.distruptions = distruptions
+        self.currentStatus = currentStatus
+    }
 
 }

@@ -19,4 +19,9 @@ public struct JourneyLegRouteOption: Codable {
     /// Basic information on the Line of this route
     public var lineIdentifier: Line?
 
+    public init(name: String? = nil, directions: [String]? = nil, lineIdentifier: Line? = nil) {
+        self.name = name
+        self.directions = directions
+        self.lineIdentifier = lineIdentifier
+    }
 }

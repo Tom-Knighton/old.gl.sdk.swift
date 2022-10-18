@@ -33,5 +33,16 @@ public struct LineStatus: Codable {
     
     /// The disruption, if any, attached to the status
     public var disruption: Disruption?
+    
+    public init(id: String? = nil, lineId: String? = nil, statusSeverity: Int? = nil, statusSeverityDescription: String? = nil, reason: String? = nil, created: Date? = nil, validityPeriods: [LineStatusValidityPeriod]? = nil, disruption: Disruption? = nil) {
+        self.id = id
+        self.lineId = lineId
+        self.statusSeverity = statusSeverity
+        self.statusSeverityDescription = statusSeverityDescription
+        self.reason = reason
+        self.created = created
+        self.validityPeriods = validityPeriods
+        self.disruption = disruption
+    }
 
 }

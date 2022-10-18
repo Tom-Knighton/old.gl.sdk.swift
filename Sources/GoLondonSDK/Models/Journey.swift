@@ -22,4 +22,11 @@ public struct Journey: Codable {
     /// The different legs of the journey, i.e. taking the bus, then walking
     public var legs: [JourneyLeg]?
     
+    public init(startDateTime: Date? = nil, arrivalDateTime: Date? = nil, duration: Int? = nil, legs: [JourneyLeg]? = nil) {
+        self.startDateTime = startDateTime
+        self.arrivalDateTime = arrivalDateTime
+        self.duration = duration
+        self.legs = legs
+    }
+    
 }

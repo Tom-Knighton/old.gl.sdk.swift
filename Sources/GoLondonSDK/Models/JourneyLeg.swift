@@ -42,5 +42,19 @@ public struct JourneyLeg: Codable {
     
     /// Whether or not the leg has fixed locations like Stop Points
     public var hasFixedLocations: Bool?
+    
+    public init(instruction: JourneyLegInstruction? = nil, departureTime: Date? = nil, arrivalTime: Date? = nil, departurePoint: StopPoint? = nil, arrivalPoint: StopPoint? = nil, path: JourneyLegPath? = nil, routeOptions: [JourneyLegRouteOption]? = nil, mode: JourneyMode? = nil, disruptions: [Disruption]? = nil, isDisrupted: Bool? = nil, hasFixedLocations: Bool? = nil) {
+        self.instruction = instruction
+        self.departureTime = departureTime
+        self.arrivalTime = arrivalTime
+        self.departurePoint = departurePoint
+        self.arrivalPoint = arrivalPoint
+        self.path = path
+        self.routeOptions = routeOptions
+        self.mode = mode
+        self.disruptions = disruptions
+        self.isDisrupted = isDisrupted
+        self.hasFixedLocations = hasFixedLocations
+    }ß
 
 }

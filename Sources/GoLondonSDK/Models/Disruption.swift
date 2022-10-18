@@ -27,5 +27,14 @@ public struct Disruption: Codable {
     
     /// The type of delay
     public var delayType: DisruptionDelayType?
+    
+    public init(description: String? = nil, created: Date? = nil, lastUpdate: Date? = nil, affectedRoutes: [LineRoute]? = nil, closureText: String? = nil, delayType: DisruptionDelayType? = nil) {
+        self.description = description
+        self.created = created
+        self.lastUpdate = lastUpdate
+        self.affectedRoutes = affectedRoutes
+        self.closureText = closureText
+        self.delayType = delayType
+    }ß
 
 }
