@@ -35,6 +35,5 @@ public struct Disruption: Codable {
         self.affectedRoutes = affectedRoutes
         self.closureText = closureText
         self.delayType = delayType
-    }ß
-
+    }
 }

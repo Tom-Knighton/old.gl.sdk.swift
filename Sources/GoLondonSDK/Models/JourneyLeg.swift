@@ -55,6 +55,6 @@ public struct JourneyLeg: Codable {
         self.disruptions = disruptions
         self.isDisrupted = isDisrupted
         self.hasFixedLocations = hasFixedLocations
-    }ß
+    }
 
 }

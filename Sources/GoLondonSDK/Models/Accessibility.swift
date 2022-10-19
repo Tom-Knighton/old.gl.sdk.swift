@@ -53,5 +53,5 @@ public enum StationAccessibilityType: String, Codable, CaseIterable {
     case StepFreeToPlatform = "StepFreeToPlatform"
     case PartialToPlatform = "Partial"
     case InterchangeOnly = "Interchange"
-    case None = "None"ß
+    case None = "None"
 }
