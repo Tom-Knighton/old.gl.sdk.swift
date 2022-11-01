@@ -10,8 +10,8 @@ import Foundation
 /// Data representing a Train/Bus's departure from a StopPoint
 public struct Departure: Codable {
     
-    public init(platformName: String? = nil, vehicleId: String? = nil, lineId: String, lineMode: LineMode, destinationName: String? = nil, destinationNaptan: String? = nil, estimatedArrival: Date? = nil, estimatedDeparture: Date? = nil, scheduledArrival: Date? = nil, scheduledDeparture: Date? = nil, status: String? = nil, towards: String? = nil, tubeDirection: String? = nil, currentDirection: String? = nil,
-        canonicalDirection: String? = nil) {
+    public init(platformName: String? = nil, vehicleId: String? = nil, lineId: String, lineMode: LineMode, destinationName: String? = nil, destinationNaptan: String? = nil, estimatedArrival: Date? = nil, estimatedDeparture: Date? = nil, scheduledArrival: Date? = nil, scheduledDeparture: Date? = nil, status: String? = nil, towards: String? = nil, tubeDirection: String? = nil, currentDirection: String? = nil, canonicalDirection: String? = nil, bearing: Int? = nil, stopName: String? = nil,
+                naptanId: String? = nil) {
         self.platformName = platformName
         self.vehicleId = vehicleId
         self.lineId = lineId
@@ -27,6 +27,9 @@ public struct Departure: Codable {
         self.tubeDirection = tubeDirection
         self.currentDirection = currentDirection
         self.canonicalDirection = canonicalDirection
+        self.stopBearing = bearing
+        self.stationName = stopName
+        self.naptanId = naptanId
     }
 
     /// The name of the platform this departure is arriving at
@@ -73,6 +76,15 @@ public struct Departure: Codable {
     
     /// The canonical direction of this departure, inbound or outbound
     public let canonicalDirection: String?
+    
+    /// If this departure is at a bus stop, the bearing of the bus stop
+    public let stopBearing: Int?
+    
+    /// If this departure is at a bus stop, the name of the stop
+    public let stationName: String?
+    
+    /// If this departure is at a bus stop, the naptan ID of the stop
+    public let naptanId: String?
 }
 
 ///  Data grouping some platform groups under a line id
