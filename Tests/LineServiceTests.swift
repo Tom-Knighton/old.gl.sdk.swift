@@ -53,7 +53,7 @@ class LineServiceTests: XCTestCase {
         
         let results = await GLSDK.Lines.Routes(for: "central")
         
-        let firstCoord = results?.lineMapRoute?.first?.first?.first
+        let firstCoord = results?.lineMapRoutes?.first?.first
         XCTAssertNotNil(firstCoord)
         XCTAssert(firstCoord?[0] != 0)
         XCTAssert(firstCoord?[1] != 0)

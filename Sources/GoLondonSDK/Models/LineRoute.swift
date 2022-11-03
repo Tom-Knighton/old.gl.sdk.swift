@@ -48,13 +48,13 @@ public struct LineRoutes: Codable {
     public var stopPointSequences: [Branch]?
     
     /// A deep collection of coordinates along this route, will follow roads etc.
-    public var lineMapRoute: [[[[Double]]]]?
+    public var lineMapRoutes: [[[Double]]]?
     
-    public init(lineId: String? = nil, lineName: String? = nil, stopPointSequences: [Branch]? = nil, lineMapRoute: [[[[Double]]]]? = nil) {
+    public init(lineId: String? = nil, lineName: String? = nil, stopPointSequences: [Branch]? = nil, lineMapRoutes: [[[Double]]]? = nil) {
         self.lineId = lineId
         self.lineName = lineName
         self.stopPointSequences = stopPointSequences
-        self.lineMapRoute = lineMapRoute
+        self.lineMapRoutes = lineMapRoutes
     }
 }
 
