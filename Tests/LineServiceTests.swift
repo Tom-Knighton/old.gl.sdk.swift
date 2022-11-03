@@ -48,5 +48,15 @@ class LineServiceTests: XCTestCase {
         
         XCTAssert(unfixedResults.jsonEncode() != fixedResults.jsonEncode())
     }
+    
+    func testRouteLineMapIsFilled() async throws {
+        
+        let results = await GLSDK.Lines.Routes(for: "central")
+        
+        let firstCoord = results?.lineMapRoute?.first?.first?.first
+        XCTAssertNotNil(firstCoord)
+        XCTAssert(firstCoord?[0] != 0)
+        XCTAssert(firstCoord?[1] != 0)
+    }
 }
 

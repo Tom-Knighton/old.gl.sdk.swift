@@ -47,10 +47,14 @@ public struct LineRoutes: Codable {
     /// An array of route branches served by this this line
     public var stopPointSequences: [Branch]?
     
-    public init(lineId: String? = nil, lineName: String? = nil, stopPointSequences: [Branch]? = nil) {
+    /// A deep collection of coordinates along this route, will follow roads etc.
+    public var lineMapRoute: [[[[Double]]]]?
+    
+    public init(lineId: String? = nil, lineName: String? = nil, stopPointSequences: [Branch]? = nil, lineMapRoute: [[[[Double]]]]? = nil) {
         self.lineId = lineId
         self.lineName = lineName
         self.stopPointSequences = stopPointSequences
+        self.lineMapRoute = lineMapRoute
     }
 }
 
