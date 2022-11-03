@@ -86,7 +86,7 @@ extension GLSDK.Lines {
     /// - Parameter lineId: The id of the line, i.e. 'elizabeth' or 'bakerloo'
     /// - Parameter fixCoordinates: Whether or not to merge stop points with the same Ics Id to the same coordinate, defaults to true
     /// - Returns: A `LineRoutes` object 
-    public static func Routes(for lineId: String, fixCoordinates: Bool = true) async -> LineRoutes? {
-        return await LineService.GetLineRoutes(for: lineId, fixCoordinates: fixCoordinates)
+    public static func Routes(for lineId: String, fixCoordinates: Bool = true, direction: LineDirection = .outbound) async -> LineRoutes? {
+        return await LineService.GetLineRoutes(for: lineId, fixCoordinates: fixCoordinates, direction: direction)
     }
 }

@@ -58,5 +58,15 @@ class LineServiceTests: XCTestCase {
         XCTAssert(firstCoord?[0] != 0)
         XCTAssert(firstCoord?[1] != 0)
     }
+    
+    func testRoutesDirectionValid() async throws {
+        
+        let resultIn = await GLSDK.Lines.Routes(for: "central", direction: .inbound)
+        let resultOut = await GLSDK.Lines.Routes(for: "central", direction: .outbound)
+        
+        XCTAssertNotNil(resultIn)
+        XCTAssertNotNil(resultOut)
+        XCTAssert(resultIn?.stopPointSequences?.first?.stopPoint?.first?.id != resultOut?.stopPointSequences?.first?.stopPoint?.first?.id)
+    }
 }
 
