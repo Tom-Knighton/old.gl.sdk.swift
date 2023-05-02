@@ -9,7 +9,7 @@ import Foundation
 
 struct APIClient {
     
-    private static let BASEURL = "https://api.golondon.tomk.online/api/"
+    private static let BASEURL = "https://old.api.golondon.tomk.online/api/"
     
     static func perform<T: Decodable>(url: String, to type: T.Type) async throws -> T? {
         let data = await performNoDecoding(url: url)
